@@ -74,5 +74,3 @@ sample_list = [
 ]
 
 sample_list = modify(sample_list)
-
-print(sample_list)
