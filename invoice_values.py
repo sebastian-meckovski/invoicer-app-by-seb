@@ -1,0 +1,11 @@
+Name = "Sebastian Meckovski"
+Adress_Line_1 = "19 Gresham Street"
+Adress_Line_2 = "Lincoln"
+Adress_Line_3 = "UK"
+Adress_Line_4 = "LN11PZ"
+
+client_name = "Energie Fitness"
+client_adress_line_1 = "31 Sincil Bank"
+client_adress_line_2 = "Lincoln"
+client_adress_line_3 = "UK"
+client_adress_line_4 = "LN5 7TZ"
