@@ -15,40 +15,45 @@ y = A4[1] - 135
 x = A4[0]
 space = 14
 
-
 document = canvas.Canvas("Example Invoice.pdf", pagesize=A4)
 
-document.setLineWidth(5)
-document.setStrokeColor(lightsalmon)
-document.setFillColor(darkcyan)
-document.rotate(10)
-document.rect(90, A4[1]-120, 800, 250, 1, 1)
-document.rotate(-10)
 
-document.setFont("Helvetica-Bold", 16)
-document.drawString(50, y, Name)
-document.setFont("Helvetica", 11)
-document.drawString(50, y - space, Adress_Line_1)
-document.drawString(50, y - space * 2, Adress_Line_2)
-document.drawString(50, y - space * 3, Adress_Line_3)
-document.drawString(50, y - space * 4, Adress_Line_4)
+def set_upper_text(seller_name='Sebastian'):
 
-document.drawRightString(x - 50, y - space * 9, "Prepared date")
-document.drawRightString(x - 50, y - space * 10, date_data)
+    document.setLineWidth(5)
+    document.setStrokeColor(lightsalmon)
+    document.setFillColor(darkcyan)
+    document.rotate(10)
+    document.rect(90, A4[1]-120, 800, 250, 1, 1)
+    document.rotate(-10)
 
-document.drawString(50, y - space * 7, "Invoice to:")
-document.setFont("Helvetica-Bold", 16)
-document.drawString(50, y - space * 9, client_name)
-document.setFont("Helvetica", 11)
-document.drawString(50, y - space * 10, client_adress_line_1)
-document.drawString(50, y - space * 11, client_adress_line_2)
-document.drawString(50, y - space * 12, client_adress_line_3)
-document.drawString(50, y - space * 13, client_adress_line_4)
+    document.setFont("Helvetica-Bold", 16)
+    document.drawString(50, y, seller_name)
+    document.setFont("Helvetica", 11)
+    document.drawString(50, y - space, Adress_Line_1)
+    document.drawString(50, y - space * 2, Adress_Line_2)
+    document.drawString(50, y - space * 3, Adress_Line_3)
+    document.drawString(50, y - space * 4, Adress_Line_4)
 
-document.drawCentredString(x/2, y - space * 46, "Bank Details:")
-document.drawCentredString(x/2, y - space * 47, "Sort Code: 11-22-33")
-document.drawCentredString(x/2, y - space * 48, "Account Number: 12345789")
-document.drawCentredString(x/2, y - space * 49, "Name: Mack Sebastian")
+    document.drawRightString(x - 50, y - space * 9, "Prepared date")
+    document.drawRightString(x - 50, y - space * 10, date_data)
+
+    document.drawString(50, y - space * 7, "Invoice to:")
+    document.setFont("Helvetica-Bold", 16)
+    document.drawString(50, y - space * 9, client_name)
+    document.setFont("Helvetica", 11)
+    document.drawString(50, y - space * 10, client_adress_line_1)
+    document.drawString(50, y - space * 11, client_adress_line_2)
+    document.drawString(50, y - space * 12, client_adress_line_3)
+    document.drawString(50, y - space * 13, client_adress_line_4)
+
+
+def set_footer():
+    document.setFillColor(darkcyan)
+    document.drawCentredString(x / 2, y - space * 46, "Bank Details:")
+    document.drawCentredString(x / 2, y - space * 47, "Sort Code: 11-22-33")
+    document.drawCentredString(x / 2, y - space * 48, "Account Number: 12345789")
+    document.drawCentredString(x / 2, y - space * 49, "Name: Mack Sebastian")
 
 
 def create_table(list_of_items, items_per_page=13):
@@ -132,6 +137,11 @@ def create_table(list_of_items, items_per_page=13):
         t_new.drawOn(document, 50, A4[1] - row_space)
 
 
+set_upper_text()
+
 create_table(sample_list)
+
+set_footer()
+
 
 document.save()
