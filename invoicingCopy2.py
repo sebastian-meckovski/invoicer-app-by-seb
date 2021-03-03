@@ -18,7 +18,7 @@ space = 14
 document = canvas.Canvas("Example Invoice.pdf", pagesize=A4)
 
 
-def set_upper_text(seller_name='Sebastian'):
+def set_header(seller_name='Sebastian'):
 
     document.setLineWidth(5)
     document.setStrokeColor(lightsalmon)
@@ -137,11 +137,11 @@ def create_table(list_of_items, items_per_page=13):
         t_new.drawOn(document, 50, A4[1] - row_space)
 
 
-set_upper_text()
+# set_header()
 
-create_table(sample_list)
+# create_table(sample_list)
 
-set_footer()
+# set_footer()
 
 
 document.save()
